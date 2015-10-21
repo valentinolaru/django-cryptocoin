@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from bitcoinrpc.authproxy import AuthServiceProxy
+from django_cryptocoin.bitcoinrpc.authproxy import AuthServiceProxy
 from django_cryptocoin import settings
 
 
