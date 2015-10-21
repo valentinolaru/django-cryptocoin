@@ -21,5 +21,4 @@ class Command(BaseCommand):
             rate.rate = json_resp['ticker']['last']
             rate.save()
 
-
         self.stdout.write('Successfully executed')

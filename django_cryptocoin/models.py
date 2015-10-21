@@ -22,7 +22,7 @@ class CryptoOrder(models.Model):
 
     def save(self, *args, **kwargs):
         if self.pk is None:
-            if not self.currency in settings.CONNECTION_STRING:
+            if self.currency not in settings.CONNECTION_STRING:
                 raise Exception("Connection string for %s is not defined" % self.currency)
             try:
                 access = AuthServiceProxy(settings.CONNECTION_STRING[self.currency])
@@ -42,7 +42,7 @@ class ExchangeRate(models.Model):
     def get_exchange_rate(cls, from_currency, to_currency):
         """Get rate to exchange from real money to cryprocoins"""
         try:
-           rate = ExchangeRate.objects.get(currency2=from_currency, currency1=to_currency)
+            rate = ExchangeRate.objects.get(currency2=from_currency, currency1=to_currency)
         except Exception as e:
             raise Exception("Could not get exchange rate for this currencies")
 

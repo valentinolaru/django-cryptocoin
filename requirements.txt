@@ -1,1 +1,1 @@
-python-bitcoinrpc
+django

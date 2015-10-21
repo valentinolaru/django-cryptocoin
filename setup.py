@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-cryptocoin',
-    version='0.1.1',
+    version='0.2',
     packages=[
         'django_cryptocoin',
         'django_cryptocoin.bitcoinrpc',
@@ -21,7 +21,6 @@ setup(
     description='A Django app to organize accepting bitcoin, litecoin, novacoin and other cryptocoins.',
     long_description=README,
     url='https://github.com/quantum13/django-cryptocoin',
-    requires=["South (>=0.8.4)"],
     author='Vladimir Khramov',
     author_email='hr.vlad@gmail.com',
 )

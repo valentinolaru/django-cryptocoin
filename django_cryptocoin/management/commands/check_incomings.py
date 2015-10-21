@@ -19,7 +19,7 @@ class Command(BaseCommand):
             Q(amount_received_confirmed__lt=F('amount_received'))
         )
         for order in orders:
-            if not order.currency in settings.CONNECTION_STRING:
+            if order.currency not in settings.CONNECTION_STRING:
                 continue
             try:
                 access = AuthServiceProxy(settings.CONNECTION_STRING[order.currency])
@@ -36,7 +36,7 @@ class Command(BaseCommand):
                     order.processed = True
                     order.save()
 
-            except Exception, e:
+            except Exception as e:
                 continue
 
         self.stdout.write('Successfully executed')
