@@ -20,6 +20,8 @@ class Command(BaseCommand):
                 response = None
 
             if response:
+                if 'error' in response:
+                    continue
                 rate, created = ExchangeRate.objects.get_or_create(currency1=currencies[0], currency2=currencies[1])
                 rate.rate = response['ticker']['last']
                 rate.save()
