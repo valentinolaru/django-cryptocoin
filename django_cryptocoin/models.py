@@ -27,7 +27,7 @@ class CryptoOrder(models.Model):
             try:
                 access = AuthServiceProxy(settings.CONNECTION_STRING[self.currency])
                 self.addr = access.getnewaddress(settings.GENERATED_ADDRESSES_ACCOUNT)
-            except Exception, e:
+            except Exception as e:
                 raise Exception("Could not connect to crypto coin daemon")
 
         super(CryptoOrder, self).save(*args, **kwargs)
@@ -43,7 +43,7 @@ class ExchangeRate(models.Model):
         """Get rate to exchange from real money to cryprocoins"""
         try:
            rate = ExchangeRate.objects.get(currency2=from_currency, currency1=to_currency)
-        except Exception, e:
+        except Exception as e:
             raise Exception("Could not get exchange rate for this currencies")
 
         return 1/rate.rate
