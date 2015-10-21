@@ -5,7 +5,7 @@ from django_cryptocoin import settings
 
 
 class CryptoOrder(models.Model):
-    currency = models.CharField(max_length=50, default='btc', choices=settings.CRYPTO_COINS.items())
+    currency = models.CharField(max_length=50, default='btc', choices=settings.CRYPTO_COINS)
     addr = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=18, decimal_places=8)
     amount_received = models.DecimalField(max_digits=18, decimal_places=8, default=0)
@@ -18,7 +18,7 @@ class CryptoOrder(models.Model):
         return settings.INVOICE_TIME - (timezone.now() - self.date).seconds
 
     def currency_full(self):
-        return settings.CRYPTO_COINS[self.currency]
+        return self.get_currency_display()
 
     def save(self, *args, **kwargs):
         if self.pk is None:

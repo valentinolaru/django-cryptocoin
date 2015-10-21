@@ -61,13 +61,13 @@ Options
 
 CRYPTO_COINS
 ------------
-Dict with supported crypto currencies. Default::
+List with supported crypto currencies. Default::
 
-    {
-        'btc': 'Bitcoin',
-        'ltc': 'Litecoin',
-        'nvc': 'Novacoin',
-    }
+    (
+        ('btc', 'Bitcoin'),
+        ('ltc', 'Litecoin'),
+        ('nvc', 'Novacoin')
+    )
 
 CONNECTION_STRING
 -----------------
