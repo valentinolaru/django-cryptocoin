@@ -9,7 +9,7 @@ Quick Start
 
 1. Install using pip `pip install django-cryptocoin`
 
-2. Add `'django-cryptocoin',` to INSTALLED_APPS in your `settings.py`
+2. Add `'django_cryptocoin',` to INSTALLED_APPS in your `settings.py`
 
 3. Run `python manage.py migrate`
 
