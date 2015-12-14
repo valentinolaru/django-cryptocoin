@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-cryptocoin',
-    version='0.2.6',
+    version='0.3.0',
     packages=[
         'django_cryptocoin',
         'django_cryptocoin.bitcoinrpc',
@@ -17,6 +17,7 @@ setup(
         'django_cryptocoin.migrations',
     ],
     include_package_data=True,
+    install_requires=['bitcoin-python'],
     license='BSD (3-Clause) License',
     description='A Django app to organize accepting bitcoin, litecoin, novacoin and other cryptocoins.',
     long_description=README,
