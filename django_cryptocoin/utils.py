@@ -13,7 +13,7 @@ def bitcoinrpc_connect(service_url):
     if url.port is None:
         port = 80
     else:
-        port = url.port
+        port = int(url.port)
     (user, password) = (url.username, url.password)
     try:
         user = user.encode('utf8')

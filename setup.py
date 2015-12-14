@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-cryptocoin',
-    version='0.3.0',
+    version='0.3.1',
     packages=[
         'django_cryptocoin',
         'django_cryptocoin.management',
