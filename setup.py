@@ -11,7 +11,6 @@ setup(
     version='0.3.0',
     packages=[
         'django_cryptocoin',
-        'django_cryptocoin.bitcoinrpc',
         'django_cryptocoin.management',
         'django_cryptocoin.management.commands',
         'django_cryptocoin.migrations',
