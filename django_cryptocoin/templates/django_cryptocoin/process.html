@@ -75,7 +75,7 @@
 
     setInterval(function () {
         $j.getJSON(
-            '{% url 'cryptocoin-order-check-status' order.addr %}',
+            '{% url "django_cryptocoin:cryptocoin-order-check-status" order.addr %}',
             function(data) {
                 seconds_remains = data.seconds_remains;
                 if(data.received_confirmed>=amount_needed) {
