@@ -15,7 +15,7 @@ class CryptoOrder(models.Model):
     processed = models.BooleanField(default=False)
 
     def seconds_remains(self):
-        return settings.INVOICE_TIME - (timezone.now() - self.date).seconds
+        return settings.INVOICE_TIME - (timezone.now() - self.date).total_seconds()
 
     def currency_full(self):
         return self.get_currency_display()
