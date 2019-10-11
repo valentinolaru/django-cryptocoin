@@ -19,7 +19,7 @@ Quick Start
 
 6. Add relation to CryptoOrder to your order model::
 
-    crypto_order = models.OneToOneField(CryptoOrder, related_name='order')
+    crypto_order = models.OneToOneField(CryptoOrder, blank=True, null=True, default=None, on_delete=models.SET_NULL, related_name='order')
 
 7. Add handler to payment end signal (delivery digital content, sending email, etc)::
 
