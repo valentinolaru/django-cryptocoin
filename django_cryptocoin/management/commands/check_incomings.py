@@ -5,7 +5,7 @@ from django.utils import timezone
 from django_cryptocoin.models import CryptoOrder
 from django_cryptocoin import settings
 from django_cryptocoin.signals import after_pay_confirmation
-from django_cryptocoin.utils import bitcoinrpc_connect
+from bitcoinrpc.authproxy import AuthServiceProxy
 
 
 class Command(BaseCommand):
@@ -22,7 +22,7 @@ class Command(BaseCommand):
             if order.currency not in settings.CONNECTION_STRING:
                 continue
             try:
-                access = bitcoinrpc_connect(settings.CONNECTION_STRING[order.currency])
+                access = AuthServiceProxy(settings.CONNECTION_STRING[order.currency])
                 received = access.getreceivedbyaddress(order.addr, 0)
                 received_confirmed = access.getreceivedbyaddress(order.addr, settings.CONFIRMATIONS[order.currency])
 

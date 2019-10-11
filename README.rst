@@ -4,10 +4,15 @@ django-cryptocoin
 
 Django-cryptocoin is a Django app to organize accepting bitcoin, litecoin, novacoin and other cryptocoins, which support JSON-RPC commands getnewaddress and getreceivedbyaddress.
 
+Dependencies
+------------
+
+* Python 3.4-3.6 for Django 2.0 or higher
+
 Quick Start
 ===========
 
-1. Install using pip `pip install django-cryptocoin`
+1. Install using pip `pip install git+https://github.com/valentinolaru/django-cryptocoin.git`
 
 2. Add `'django_cryptocoin',` to INSTALLED_APPS in your `settings.py`
 
@@ -41,7 +46,7 @@ Quick Start
             form.save()
             return redirect('cryptocoin-order-process', addr=crypto_order.addr)
 
-After confirmation of transaction sended signal `after_pay_confirmation` which handler described above.
+After confirmation of transaction send signal `after_pay_confirmation` which handler described above.
 
 Example
 =======
